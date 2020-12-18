@@ -1,14 +1,14 @@
 import React from "react";
 
-const Index = ({ posts }) => {
-  return <div>{posts.name}</div>;
+const Index = ({ data }) => {
+  return <div>{data.name}</div>;
 };
 export async function getStaticProps() {
-  const res = await fetch(`${process.env.BASE_API_URL}`);
-  const posts = await res.json();
+  const res = await fetch(`${process.env.API_BASE_URL}${process.env.POST_URL}`);
+  const data = await res.json();
   return {
     props: {
-      posts,
+      data,
     },
   };
 }
